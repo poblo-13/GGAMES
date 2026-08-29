@@ -1,0 +1,311 @@
+/* =========================
+   VARIABLES GENERALES
+   ========================= */
+
+:root {
+    --color-fondo: #06142E;
+    --color-superficie: #004162;
+    --color-secundario: #007284;
+
+    --color-acento: #00A58A;
+    --color-destacado: #F9F871;
+
+    --color-texto: #F8F8F8;
+    --color-texto-secundario: #C7D5E0;
+
+    --color-tarjeta: #0B1F3A;
+}
+
+
+/* =========================
+   CONFIGURACIÓN GENERAL
+   ========================= */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background-color: var(--color-fondo);
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+
+/* =========================
+   ENCABEZADO
+   ========================= */
+
+header {
+    background-color: var(--color-superficie);
+    color: var(--color-texto);
+    padding: 20px;
+}
+
+.logo {
+    width: 320px;
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin-bottom: 10px;
+}
+
+
+/* =========================
+   TÍTULOS
+   ========================= */
+
+h2 {
+    background-color: var(--color-superficie);
+    display: inline-block;
+    color: var(--color-texto);
+    padding: 8px 15px;
+    border-radius: 8px;
+    font-size: 24px;
+}
+
+h3 {
+    background-color: var(--color-secundario);
+    display: inline-block;
+    color: var(--color-texto);
+    padding: 6px 12px;
+    border-radius: 8px;
+    font-size: 20px;
+}
+
+
+/* =========================
+   TEXTOS Y ENLACES
+   ========================= */
+
+p {
+    color: var(--color-texto);
+}
+
+a {
+    color: var(--color-texto);
+    text-decoration: underline;
+}
+
+
+/* =========================
+   NAVEGACIÓN
+   ========================= */
+
+nav {
+    padding: 10px 20px;
+}
+
+nav ul {
+    display: flex;
+    gap: 20px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+nav a {
+    color: var(--color-texto);
+    text-decoration: underline;
+}
+
+nav a:hover {
+    color: var(--color-destacado);
+}
+
+/* =========================
+   SECCIONES
+   ========================= */
+
+section {
+    padding: 20px;
+}
+
+/* =========================
+   BENEFICIOS
+   ========================= */
+
+.lista-beneficios {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    max-width: 1400px;
+    margin: 20px auto 0;
+}
+
+.lista-beneficios article {
+    background-color: var(--color-tarjeta);
+    border: 1px solid var(--color-secundario);
+    border-radius: 10px;
+    padding: 20px;
+}
+
+.lista-beneficios h3 {
+    background-color: transparent;
+    color: var(--color-destacado);
+    padding: 0;
+    margin-top: 0;
+}
+
+.lista-beneficios p {
+    color: var(--color-texto-secundario);
+    line-height: 1.5;
+}
+
+/* =========================
+   PRODUCTOS
+   ========================= */
+
+#productos {
+    padding: 20px;
+}
+
+.lista-productos {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    list-style: none;
+    padding: 0;
+    margin: 0 auto;
+    max-width: 1700px;
+}
+
+.producto {
+    padding: 15px;
+    margin: 10px 0;
+    border: 2px solid var(--color-secundario);
+}
+
+.producto img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+
+/* =========================
+   INFORMACIÓN DE PRODUCTOS
+   ========================= */
+
+.plataformas {
+    color: var(--color-texto-secundario);
+}
+
+.precio {
+    color: var(--color-destacado);
+    font-size: 20px;
+    font-weight: bold;
+}
+
+/* =========================
+   EFECTOS HOVER
+   ========================= */
+
+.producto,
+.lista-beneficios article {
+    transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.producto:hover,
+.lista-beneficios article:hover {
+    transform: translateY(-4px);
+    border-color: var(--color-destacado);
+}
+
+
+/* =========================
+   SELECTOR AVANZADO
+   ========================= */
+
+.producto:nth-child(2),
+.producto:nth-child(5) {
+    border-color: var(--color-acento);
+}
+
+
+/* =========================
+   PIE DE PÁGINA
+   ========================= */
+
+footer {
+    background-color: var(--color-superficie);
+    padding: 20px;
+    margin-top: 20px;
+}
+
+footer ul {
+    display: flex;
+    gap: 20px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+footer a {
+    color: var(--color-texto);
+}
+
+footer a:hover {
+    color: var(--color-destacado);
+}
+
+
+/* =========================
+   DISEÑO RESPONSIVE
+   ========================= */
+
+/* TABLET */
+@media (max-width: 1024px) {
+
+    .lista-productos {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .lista-beneficios {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+
+/* MÓVIL */
+@media (max-width: 768px) {
+
+    .lista-productos {
+        grid-template-columns: 1fr;
+    }
+
+    .lista-beneficios {
+        grid-template-columns: 1fr;
+    }
+
+    nav ul {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    footer ul {
+        flex-direction: column;
+        gap: 10px;
+        align-items: center;
+    }
+
+    .logo {
+        width: 220px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    header {
+        text-align: center;
+    }
+
+    section {
+        padding: 15px;
+    }
+
+    footer {
+        text-align: center;
+    }
+}
