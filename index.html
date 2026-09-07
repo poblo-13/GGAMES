@@ -8,25 +8,104 @@
 
     <title>GGAMES</title>
 
-    <link rel="stylesheet" href="css/Pablo_Pilar_PFY2201_CSS_Semana3.css">
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- CSS personalizado -->
+    <link rel="stylesheet" href="css/Pablo_Pilar_PFY2201_CSS_Semana4.css">
 </head>
 
 <body>
 
     <header id="inicio">
 
-        <img src="img/GGAMES.png" alt="Logo GGAMES" class="logo">        
+        <img src="img/GGAMES.png" alt="Logo GGAMES" class="logo">
         <p>¡Bienvenido a GGAMES, tu tienda de juegos favorita!</p>
     </header>
 
 
-    <nav>
-        <ul>
-            <li><a href="#inicio">Inicio</a></li>
-            <li><a href="#productos">Productos</a></li>
-            <li><a href="#contacto">Contacto</a></li>
-        </ul>
+    <nav class="navbar navbar-expand-lg" data-bs-theme="dark">
+        <div class="container-fluid">
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarGGAMES"
+                aria-controls="navbarGGAMES" aria-expanded="false" aria-label="Abrir navegación">
+
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarGGAMES">
+
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#inicio">
+                            Inicio
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#productos">
+                            Productos
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contacto">
+                            Contacto
+                        </a>
+                    </li>
+
+                </ul>
+
+                <form class="d-flex" role="search">
+                    <input class="form-control me-2" type="search" placeholder="Buscar juegos..."
+                        aria-label="Buscar juegos">
+
+                    <button class="btn btn-outline-success" type="submit">
+                        Buscar
+                    </button>
+                </form>
+
+            </div>
+
+        </div>
     </nav>
+
+    <!-- Carrusel principal -->
+    <div id="carouselGGAMES" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carouselGGAMES" data-bs-slide-to="0" class="active"
+                aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carouselGGAMES" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#carouselGGAMES" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        </div>
+
+        <div class="carousel-inner">
+
+            <div class="carousel-item active">
+                <img src="img/ofertas_primavera.png" class="d-block w-100" alt="Ofertas de primavera">
+            </div>
+
+            <div class="carousel-item">
+                <img src="img/promo_gta6.png" class="d-block w-100" alt="Lanzamiento GTA VI">
+            </div>
+
+            <div class="carousel-item">
+                <img src="img/nuevos_juegos.png" class="d-block w-100" alt="Próximos juegos en GGAMES">
+            </div>
+
+        </div>
+
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselGGAMES" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Anterior</span>
+        </button>
+
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselGGAMES" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Siguiente</span>
+        </button>
+    </div>
 
     <main>
 
@@ -42,175 +121,195 @@
         </section>
 
         <section class="beneficios">
+
             <h2>¿Por qué elegir GGAMES?</h2>
-            
-            <div class="lista-beneficios">
 
-                <article>
-                    <h3>Variedad de juegos</h3>
+            <div class="row g-4 mt-2">
 
-                    <p>
-                        Encuentra títulos de acción, aventura, deportes y mucho más.
-                    </p>
-                </article>
+                <div class="col-12 col-md-6 col-lg-4">
+                    <article>
+                        <h3>Variedad de juegos</h3>
 
-                <article>
-                    <h3>Múltiples plataformas</h3>
+                        <p>
+                            Encuentra títulos de acción, aventura, deportes y mucho más.
+                        </p>
+                    </article>
+                </div>
 
-                    <p>
-                        Juegos diponibles para PlayStation, Xbox, Nintendo Switch y PC.
-                    </p>
-                </article>
+                <div class="col-12 col-md-6 col-lg-4">
+                    <article>
+                        <h3>Múltiples plataformas</h3>
 
-                <article>
-                    <h3>Encuentra tu próxima aventura</h3>
+                        <p>
+                            Juegos disponibles para PlayStation, Xbox, Nintendo Switch y PC.
+                        </p>
+                    </article>
+                </div>
 
-                    <p>
-                        Explora nuestro catálogo y descubre nuevos mundos para jugar y disfrutar.
-                    </p>
-                </article>
+                <div class="col-12 col-md-6 col-lg-4">
+                    <article>
+                        <h3>Encuentra tu próxima aventura</h3>
+
+                        <p>
+                            Explora nuestro catálogo y descubre nuevos mundos para jugar y disfrutar.
+                        </p>
+                    </article>
+                </div>
+
             </div>
+
         </section>
 
         <section id="productos">
 
             <h2>Productos destacados</h2>
 
-            <ul class="lista-productos">
+            <div class="row g-4 mt-2">
 
-                <li class="producto">
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="card h-100">
+                        <img src="img/gtaa6.avif" class="card-img-top" alt="Grand Theft Auto VI">
 
-                    <h3>GRAND THEFT AUTO VI</h3>
+                        <div class="card-body">
+                            <h3 class="card-title">GRAND THEFT AUTO VI</h3>
 
-                    <p>
-                        Es un juego de acción y aventura en tercera persona de mundo
-                        abierto ambientado en el estado ficticio de Leonida.
-                    </p>
+                            <p class="card-text">
+                                Es un juego de acción y aventura en tercera persona de mundo abierto ambientado en el
+                                estado ficticio de Leonida.
+                            </p>
 
-                    <img src="img/gtaa6.avif" alt="Grand Theft Auto VI">
+                            <p class="plataformas">
+                                PlayStation 5 · Xbox Series X|S
+                            </p>
 
-                    <p class="plataformas">
-                        PlayStation 5 · Xbox Series X|S
-                    </p>
+                            <p class="precio">
+                                $74.990
+                            </p>
+                        </div>
+                    </div>
+                </div>
 
-                    <p class="precio">
-                        $74.990
-                    </p>
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="card h-100">
+                        <img src="img/fc27.avif" class="card-img-top" alt="EA Sports FC 27">
 
-                </li>
+                        <div class="card-body">
+                            <h3 class="card-title">FC 27</h3>
 
+                            <p class="card-text">
+                                Es un juego de fútbol desarrollado por EA Sports. Incluye una amplia variedad de ligas y
+                                competiciones.
+                            </p>
 
-                <li class="producto">
+                            <p class="plataformas">
+                                PlayStation 5 · PlayStation 4 · Xbox Series X|S · Xbox One · PC · Nintendo Switch /
+                                Switch 2
+                            </p>
 
-                    <h3>FC 27</h3>
+                            <p class="precio">
+                                $62.990
+                            </p>
+                        </div>
+                    </div>
+                </div>
 
-                    <p>
-                        Es un juego de fútbol desarrollado por EA Sports. Incluye una
-                        amplia variedad de ligas y competiciones.
-                    </p>
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="card h-100">
+                        <img src="img/legobatman.jpeg" class="card-img-top"
+                            alt="LEGO Batman El Legado del Caballero Oscuro">
 
-                    <img src="img/fc27.avif" alt="EA Sports FC 27">
+                        <div class="card-body">
+                            <h3 class="card-title">LEGO Batman: El Legado del Caballero Oscuro</h3>
 
-                    <p class="plataformas">
-                        PlayStation 5 · PlayStation 4 · Xbox Series X|S · Xbox One · PC · Nintendo Switch / Switch 2
-                    </p>
+                            <p class="card-text">
+                                Es un juego de acción y aventura en el que los jugadores controlan a Batman y a otros
+                                personajes de DC Comics.
+                            </p>
 
-                    <p class="precio">
-                        $62.990
-                    </p>
+                            <p class="plataformas">
+                                PlayStation 5 · Xbox Series X|S · PC · Nintendo Switch 2
+                            </p>
 
-                </li>
+                            <p class="precio">
+                                $56.990
+                            </p>
+                        </div>
+                    </div>
+                </div>
 
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="card h-100">
+                        <img src="img/stray.avif" class="card-img-top" alt="STRAY">
 
-                <li class="producto">
+                        <div class="card-body">
+                            <h3 class="card-title">STRAY</h3>
 
-                    <h3>LEGO Batman: El Legado del Caballero Oscuro</h3>
+                            <p class="card-text">
+                                Es una aventura en tercera persona donde controlas a un gato callejero perdido en una
+                                ciberciudad subterránea. Junto al dron B-12, exploras, resuelves acertijos y buscas el
+                                camino hacia la superficie.
+                            </p>
 
-                    <p>
-                        Es un juego de acción y aventura en el que los jugadores
-                        controlan a Batman y a otros personajes de DC Comics.
-                    </p>
+                            <p class="plataformas">
+                                PlayStation 5 · PlayStation 4 · Xbox Series X|S · Xbox One · PC · Nintendo Switch
+                            </p>
 
-                    <img src="img/legobatman.jpeg" alt="LEGO Batman El Legado del Caballero Oscuro">
+                            <p class="precio">
+                                $15.990
+                            </p>
+                        </div>
+                    </div>
+                </div>
 
-                    <p class="plataformas">
-                        PlayStation 5 · Xbox Series X|S · PC · Nintendo Switch 2
-                    </p>
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="card h-100">
+                        <img src="img/hogwarts_legacy.jpg" class="card-img-top" alt="Hogwarts Legacy">
 
-                    <p class="precio">
-                        $56.990
-                    </p>
+                        <div class="card-body">
+                            <h3 class="card-title">Hogwarts Legacy</h3>
 
-                </li>
+                            <p class="card-text">
+                                Es un RPG de acción en mundo abierto ambientado en el universo de Harry Potter durante
+                                el siglo XIX. Creas tu propio estudiante, asistes a clases y exploras Hogwarts
+                                y sus alrededores mientras descubres el misterio de la magia antigua.
+                            </p>
 
-                <li class="producto">
+                            <p class="plataformas">
+                                PlayStation 5 · PlayStation 4 · Xbox Series X|S · Xbox One · Nintendo Switch · PC
+                            </p>
 
-                    <h3>STRAY</h3>
+                            <p class="precio">
+                                $39.990
+                            </p>
+                        </div>
+                    </div>
+                </div>
 
-                    <p>
-                        Es una aventura en tercera persona donde controlas a un gato callejero perdido en una
-                        ciberciudad
-                        subterránea. Junto al dron B-12, exploras, resuelves acertijos y buscas el camino hacia la
-                        superficie.
-                    </p>
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="card h-100">
+                        <img src="img/god_of_war_3.jpg" class="card-img-top" alt="God of War III Remastered">
 
-                    <img src="img/stray.avif" alt="STRAY">
+                        <div class="card-body">
+                            <h3 class="card-title">God of War III Remastered</h3>
 
-                    <p class="plataformas">
-                        PlayStation 5 · PlayStation 4 · Xbox Series X|S · Xbox One · PC · Nintendo Switch
-                    </p>
+                            <p class="card-text">
+                                Versión remasterizada del desenlace de la trilogía griega de Kratos. Incluye contenidos
+                                adicionales, modo foto, sistema de combate de acción y enfrentamientos contra grandes
+                                jefes.
+                            </p>
 
-                    <p class="precio">
-                        $15.990
-                    </p>
+                            <p class="plataformas">
+                                PlayStation 5 · PlayStation 4
+                            </p>
 
-                </li>
+                            <p class="precio">
+                                $19.990
+                            </p>
+                        </div>
+                    </div>
+                </div>
 
-                <li class="producto">
-
-                    <h3>Hogwarts Legacy</h3>
-
-                    <p>
-                        Es un RPG de acción en mundo abierto ambientado en el universo de Harry Potter durante el siglo
-                        XIX.
-                        Creas tu propio estudiante, asistes a clases de magia y exploras Hogwarts, Hogsmeade y sus
-                        alrededores mientras descubres el misterio de la magia antigua.
-                    </p>
-
-                    <img src="img/hogwarts_legacy.jpg" alt="Hogwarts Legacy">
-
-                    <p class="plataformas">
-                        PlayStation 5 · PlayStation 4 · Xbox Series X|S · Xbox One · Nintendo Switch · PC
-                    </p>
-
-                    <p class="precio">
-                        $39.990
-                    </p>
-
-                </li>
-
-                <li class="producto">
-
-                    <h3>God of War III Remastered</h3>
-
-                    <p>
-                        Versión remasterizada del desenlace de la trilogía griega de Kratos. Incluye contenidos
-                        adicionales,
-                        modo foto, sistema de combate de acción y enfrentamientos contra grandes jefes.
-                    </p>
-
-                    <img src="img/god_of_war_3.jpg" alt="God of War III Remastered">
-
-                    <p class="plataformas">
-                        PlayStation 5 · PlayStation 4
-                    </p>
-
-                    <p class="precio">
-                        $19.990
-                    </p>
-                </li>
-
-            </ul>
+            </div>
 
         </section>
 
@@ -250,6 +349,9 @@
         <p>&copy; 2026 GGAMES. Todos los derechos reservados.</p>
 
     </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js">
+    </script>
 
 </body>
 

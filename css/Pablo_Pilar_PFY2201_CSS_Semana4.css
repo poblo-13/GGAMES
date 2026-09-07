@@ -91,29 +91,80 @@ a {
 
 
 /* =========================
-   NAVEGACIÓN
+   NAVBAR BOOTSTRAP
    ========================= */
 
-nav {
-    padding: 10px 20px;
+.navbar {
+    background-color: var(--color-superficie) !important;
 }
 
-nav ul {
-    display: flex;
-    gap: 20px;
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-nav a {
+.navbar .nav-link {
     color: var(--color-texto);
-    text-decoration: underline;
+    text-decoration: none;
 }
 
-nav a:hover {
+.navbar .nav-link:hover,
+.navbar .nav-link:focus {
     color: var(--color-destacado);
 }
+
+.navbar .nav-link.active {
+    color: var(--color-destacado);
+    font-weight: bold;
+}
+
+.navbar .form-control {
+    background-color: var(--color-tarjeta);
+    color: var(--color-texto);
+    border: 1px solid var(--color-secundario);
+}
+
+.navbar .form-control::placeholder {
+    color: var(--color-texto-secundario);
+}
+
+.navbar .form-control:focus {
+    background-color: var(--color-tarjeta);
+    color: var(--color-texto);
+    border-color: var(--color-acento);
+    box-shadow: 0 0 0 0.2rem rgba(0, 165, 138, 0.25);
+}
+
+.navbar .btn-outline-success {
+    color: var(--color-destacado);
+    border-color: var(--color-acento);
+}
+
+.navbar .btn-outline-success:hover {
+    background-color: var(--color-acento);
+    border-color: var(--color-acento);
+    color: var(--color-fondo);
+}
+
+.navbar .navbar-toggler {
+    border-color: var(--color-secundario);
+}
+
+
+/* =========================
+   CARRUSEL
+   ========================= */
+
+#carouselGGAMES {
+    max-width: 1600px;
+    margin: 0 auto 30px;
+}
+
+#carouselGGAMES .carousel-inner {
+    overflow: hidden;
+}
+
+#carouselGGAMES .carousel-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
 
 /* =========================
    SECCIONES
@@ -123,36 +174,31 @@ section {
     padding: 20px;
 }
 
+
 /* =========================
    BENEFICIOS
    ========================= */
 
-.lista-beneficios {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
-    max-width: 1400px;
-    margin: 20px auto 0;
-}
-
-.lista-beneficios article {
+.beneficios article {
     background-color: var(--color-tarjeta);
     border: 1px solid var(--color-secundario);
     border-radius: 10px;
     padding: 20px;
+    height: 100%;
 }
 
-.lista-beneficios h3 {
+.beneficios h3 {
     background-color: transparent;
     color: var(--color-destacado);
     padding: 0;
     margin-top: 0;
 }
 
-.lista-beneficios p {
+.beneficios p {
     color: var(--color-texto-secundario);
     line-height: 1.5;
 }
+
 
 /* =========================
    PRODUCTOS
@@ -162,28 +208,26 @@ section {
     padding: 20px;
 }
 
-.lista-productos {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
-    list-style: none;
-    padding: 0;
-    margin: 0 auto;
-    max-width: 1700px;
-}
-
-.producto {
-    padding: 15px;
-    margin: 10px 0;
+.card {
+    background-color: var(--color-tarjeta);
     border: 2px solid var(--color-secundario);
+    color: var(--color-texto);
+    height: 100%;
 }
 
-.producto img {
+.card-img-top {
     width: 100%;
     height: auto;
     display: block;
 }
 
+.card-title {
+    color: var(--color-texto);
+}
+
+.card-text {
+    color: var(--color-texto);
+}
 
 /* =========================
    INFORMACIÓN DE PRODUCTOS
@@ -199,29 +243,20 @@ section {
     font-weight: bold;
 }
 
+
 /* =========================
    EFECTOS HOVER
    ========================= */
 
-.producto,
-.lista-beneficios article {
+.card,
+.beneficios article {
     transition: transform 0.2s ease, border-color 0.2s ease;
 }
 
-.producto:hover,
-.lista-beneficios article:hover {
+.card:hover,
+.beneficios article:hover {
     transform: translateY(-4px);
     border-color: var(--color-destacado);
-}
-
-
-/* =========================
-   SELECTOR AVANZADO
-   ========================= */
-
-.producto:nth-child(2),
-.producto:nth-child(5) {
-    border-color: var(--color-acento);
 }
 
 
@@ -231,8 +266,17 @@ section {
 
 footer {
     background-color: var(--color-superficie);
-    padding: 20px;
-    margin-top: 20px;
+    color: var(--color-texto);
+    padding: 25px 20px;
+    margin-top: 30px;
+}
+
+footer h2 {
+    margin-bottom: 15px;
+}
+
+footer p {
+    margin-bottom: 10px;
 }
 
 footer ul {
@@ -240,50 +284,24 @@ footer ul {
     gap: 20px;
     list-style: none;
     padding: 0;
-    margin: 0;
+    margin: 10px 0 20px;
 }
 
 footer a {
     color: var(--color-texto);
+    text-decoration: none;
 }
 
 footer a:hover {
     color: var(--color-destacado);
 }
 
-
 /* =========================
    DISEÑO RESPONSIVE
    ========================= */
 
-/* TABLET */
-@media (max-width: 1024px) {
-
-    .lista-productos {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    .lista-beneficios {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-
-
 /* MÓVIL */
 @media (max-width: 768px) {
-
-    .lista-productos {
-        grid-template-columns: 1fr;
-    }
-
-    .lista-beneficios {
-        grid-template-columns: 1fr;
-    }
-
-    nav ul {
-        flex-direction: column;
-        gap: 10px;
-    }
 
     footer ul {
         flex-direction: column;
