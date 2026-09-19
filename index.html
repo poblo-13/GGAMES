@@ -12,7 +12,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- CSS personalizado -->
-    <link rel="stylesheet" href="css/Pablo_Pilar_PFY2201_CSS_Semana5.css">
+    <link rel="stylesheet" href="assets/css/Pablo_Pilar_PFY2201_CSS_Semana6.css">
 </head>
 
 <body>
@@ -24,7 +24,7 @@
 
             <!-- Marca / Logo -->
             <a class="navbar-brand" href="#inicio">
-                <img src="img/GGAMES.png" alt="Logo GGAMES" class="logo-navbar">
+                <img src="assets/img/GGAMES.png" alt="Logo GGAMES" class="logo-navbar">
             </a>
 
             <!-- Botón menú móvil -->
@@ -32,6 +32,7 @@
                 aria-controls="navbarGGAMES" aria-expanded="false" aria-label="Abrir navegación">
 
                 <span class="navbar-toggler-icon"></span>
+
             </button>
 
             <!-- Contenido colapsable -->
@@ -46,8 +47,26 @@
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="#productos">
+                        <a class="nav-link" href="#productos" id="mostrar-todos">
                             Productos
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link filtro-categoria" href="#productos" data-categoria="Acción">
+                            Acción y aventura
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link filtro-categoria" href="#productos" data-categoria="Deportes">
+                            Deportes
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#carrito">
+                            Carrito (<span id="contador-carrito">0</span>)
                         </a>
                     </li>
 
@@ -62,8 +81,8 @@
                 <!-- Buscador -->
                 <form id="form-buscador" class="d-flex" role="search">
 
-                    <input id="input-buscador" class="form-control me-2" type="search" placeholder="Buscar juegos..."
-                        aria-label="Buscar juegos">
+                    <input id="input-buscador" class="form-control me-2" type="search"
+                        placeholder="Buscar juegos..." aria-label="Buscar juegos">
 
                     <button class="btn btn-outline-success" type="submit">
                         Buscar
@@ -84,14 +103,16 @@
         <!-- Indicadores -->
         <div class="carousel-indicators">
 
-            <button type="button" data-bs-target="#carouselGGAMES" data-bs-slide-to="0" class="active"
-                aria-current="true" aria-label="Slide 1">
+            <button type="button" data-bs-target="#carouselGGAMES" data-bs-slide-to="0"
+                class="active" aria-current="true" aria-label="Slide 1">
             </button>
 
-            <button type="button" data-bs-target="#carouselGGAMES" data-bs-slide-to="1" aria-label="Slide 2">
+            <button type="button" data-bs-target="#carouselGGAMES" data-bs-slide-to="1"
+                aria-label="Slide 2">
             </button>
 
-            <button type="button" data-bs-target="#carouselGGAMES" data-bs-slide-to="2" aria-label="Slide 3">
+            <button type="button" data-bs-target="#carouselGGAMES" data-bs-slide-to="2"
+                aria-label="Slide 3">
             </button>
 
         </div>
@@ -101,22 +122,26 @@
         <div class="carousel-inner">
 
             <div class="carousel-item active">
-                <img src="img/ofertas_primavera.png" class="d-block w-100" alt="Ofertas de primavera">
+                <img src="assets/img/ofertas_primavera.png" class="d-block w-100"
+                    alt="Ofertas de primavera">
             </div>
 
             <div class="carousel-item">
-                <img src="img/promo_gta6.png" class="d-block w-100" alt="Lanzamiento GTA VI">
+                <img src="assets/img/promo_gta6.png" class="d-block w-100"
+                    alt="Lanzamiento GTA VI">
             </div>
 
             <div class="carousel-item">
-                <img src="img/nuevos_juegos.png" class="d-block w-100" alt="Próximos juegos en GGAMES">
+                <img src="assets/img/nuevos_juegos.png" class="d-block w-100"
+                    alt="Próximos juegos en GGAMES">
             </div>
 
         </div>
 
 
         <!-- Control anterior -->
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselGGAMES" data-bs-slide="prev">
+        <button class="carousel-control-prev" type="button"
+            data-bs-target="#carouselGGAMES" data-bs-slide="prev">
 
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
             <span class="visually-hidden">Anterior</span>
@@ -125,7 +150,8 @@
 
 
         <!-- Control siguiente -->
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselGGAMES" data-bs-slide="next">
+        <button class="carousel-control-next" type="button"
+            data-bs-target="#carouselGGAMES" data-bs-slide="next">
 
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
             <span class="visually-hidden">Siguiente</span>
@@ -213,204 +239,33 @@
 
             <h2>Productos destacados</h2>
 
-            <div class="row g-4 mt-2">
-
-
-                <!-- GTA VI -->
-                <div class="col-12 col-md-6 col-lg-4">
-
-                    <div class="card h-100"
-                        data-detalle="Explora Leonida y Vice City junto a Lucía y Jason en una historia de crimen, acción y mundo abierto.">
-
-                        <img src="img/gtaa6.avif" class="card-img-top" alt="Grand Theft Auto VI" loading="lazy">
-
-                        <div class="card-body">
-
-                            <h3 class="card-title">
-                                GRAND THEFT AUTO VI
-                            </h3>
-
-                            <p class="plataformas">
-                                PlayStation 5 · Xbox Series X|S
-                            </p>
-
-                            <p class="precio">
-                                $74.990
-                            </p>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-
-                <!-- FC 27 -->
-                <div class="col-12 col-md-6 col-lg-4">
-
-                    <div class="card h-100"
-                        data-detalle="Disfruta partidos, modos competitivos y distintas experiencias de fútbol con clubes y selecciones.">
-
-                        <img src="img/fc27.avif" class="card-img-top" alt="EA Sports FC 27" loading="lazy">
-
-                        <div class="card-body">
-
-                            <h3 class="card-title">
-                                FC 27
-                            </h3>
-
-                            <p class="plataformas">
-                                PlayStation 5 · PlayStation 4 · Xbox Series X|S · Xbox One ·
-                                PC · Nintendo Switch / Switch 2
-                            </p>
-
-                            <p class="precio">
-                                $62.990
-                            </p>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-
-                <!-- LEGO Batman -->
-                <div class="col-12 col-md-6 col-lg-4">
-
-                    <div class="card h-100"
-                        data-detalle="Recorre Gotham, completa misiones y enfrenta villanos clásicos en una aventura con el estilo característico de LEGO.">
-
-                        <img src="img/legobatman.jpeg" class="card-img-top"
-                            alt="LEGO Batman El Legado del Caballero Oscuro" loading="lazy">
-
-                        <div class="card-body">
-
-                            <h3 class="card-title">
-                                LEGO Batman: El Legado del Caballero Oscuro
-                            </h3>
-
-                            <p class="plataformas">
-                                PlayStation 5 · Xbox Series X|S · PC · Nintendo Switch 2
-                            </p>
-
-                            <p class="precio">
-                                $56.990
-                            </p>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-
-                <!-- STRAY -->
-                <div class="col-12 col-md-6 col-lg-4">
-
-                    <div class="card h-100"
-                        data-detalle="Explora una misteriosa ciudad futurista controlando a un gato acompañado por el pequeño dron B-12.">
-
-                        <img src="img/stray.avif" class="card-img-top" alt="STRAY" loading="lazy">
-
-                        <div class="card-body">
-
-                            <h3 class="card-title">
-                                STRAY
-                            </h3>
-
-                            <p class="plataformas">
-                                PlayStation 5 · PlayStation 4 · Xbox Series X|S · Xbox One ·
-                                PC · Nintendo Switch
-                            </p>
-
-                            <p class="precio">
-                                $15.990
-                            </p>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-
-                <!-- Hogwarts Legacy -->
-                <div class="col-12 col-md-6 col-lg-4">
-
-                    <div class="card h-100"
-                        data-detalle="Explora Hogwarts y sus alrededores, aprende hechizos y vive una aventura ambientada en el mundo mágico.">
-
-                        <img src="img/hogwarts_legacy.jpg" class="card-img-top" alt="Hogwarts Legacy" loading="lazy">
-
-                        <div class="card-body">
-
-                            <h3 class="card-title">
-                                Hogwarts Legacy
-                            </h3>
-
-                            <p class="plataformas">
-                                PlayStation 5 · PlayStation 4 · Xbox Series X|S · Xbox One ·
-                                Nintendo Switch · PC
-                            </p>
-
-                            <p class="precio">
-                                $39.990
-                            </p>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-
-                <!-- God of War III Remastered -->
-                <div class="col-12 col-md-6 col-lg-4">
-
-                    <div class="card h-100"
-                        data-detalle="Acompaña a Kratos en su enfrentamiento contra los dioses del Olimpo en una aventura de acción ambientada en la mitología griega.">
-
-                        <img src="img/god_of_war_3.jpg" class="card-img-top" alt="God of War III Remastered"
-                            loading="lazy">
-
-                        <div class="card-body">
-
-                            <h3 class="card-title">
-                                God of War III Remastered
-                            </h3>
-
-                            <p class="plataformas">
-                                PlayStation 5 · PlayStation 4
-                            </p>
-
-                            <p class="precio">
-                                $19.990
-                            </p>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
+            <div id="contenedor-productos" class="row g-4 mt-2">
+                <!-- JavaScript inserta aquí los productos -->
             </div>
 
         </section>
 
 
-        <!-- Ofertas obtenidas mediante Fetch API -->
-        <section id="ofertas-api">
+        <!-- Carrito de compras -->
+        <section id="carrito">
 
-            <h2>Ofertas externas de videojuegos</h2>
+            <h2>Carrito de compras</h2>
 
-            <p>
-                Juegos obtenidos directamente desde una API externa.
-            </p>
+            <div id="resumen-carrito">
 
-            <div id="contenedor-ofertas" class="row g-4 mt-2">
+                <p id="carrito-vacio">
+                    Tu carrito está vacío.
+                </p>
 
-                <!-- JavaScript insertará aquí las ofertas -->
+            </div>
+
+            <div id="total-carrito">
+
+                <strong>Total:</strong>
+
+                <span id="valor-total">
+                    $0
+                </span>
 
             </div>
 
@@ -461,8 +316,8 @@
     <!-- Bootstrap JavaScript -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
 
-    <!-- JavaScript personalizado Semana 5 -->
-    <script src="js/Pablo_Pilar_PFY2201_DOM_Semana5.js"></script>
+    <!-- JavaScript personalizado Semana 6 -->
+    <script src="assets/js/Pablo_Pilar_PFY2201_Optimizacion_Semana6.js"></script>
 
 </body>
 
