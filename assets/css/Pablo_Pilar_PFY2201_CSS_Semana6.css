@@ -614,8 +614,7 @@ footer a:focus {
    ========================= */
 
 /*
-   Respeta la configuración del usuario cuando
-   prefiere reducir animaciones y transiciones.
+    Reduce animaciones si el usuario lo prefiere
 */
 @media (prefers-reduced-motion: reduce) {
 

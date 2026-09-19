@@ -2,10 +2,10 @@
    DATOS GENERALES
    ========================= */
 
-// Guarda los productos cargados desde el archivo JSON.
+// Guarda los productos cargados desde el archivo JSON
 let productosDisponibles = [];
 
-// Guarda los productos agregados al carrito.
+// Guarda los productos agregados al carrito
 let carrito = [];
 
 
@@ -13,7 +13,7 @@ let carrito = [];
    CARGA DE PRODUCTOS
    ========================= */
 
-// Obtiene los productos desde el archivo JSON local.
+// Obtiene los productos desde el archivo JSON local
 function cargarProductos() {
 
     const contenedor =
@@ -60,7 +60,7 @@ function cargarProductos() {
 
         .then(function (productos) {
 
-            // Valida que el archivo JSON contenga una lista.
+            // Valida que el archivo JSON contenga una lista
             if (!Array.isArray(productos)) {
 
                 throw new Error(
@@ -69,16 +69,16 @@ function cargarProductos() {
             }
 
 
-            // Guarda los productos para reutilizarlos.
+            // Guarda los productos para reutilizarlos
             productosDisponibles =
                 productos;
 
 
-            // Elimina el mensaje de carga.
+            // Elimina el mensaje de carga
             mensajeCarga.remove();
 
 
-            // Crea una tarjeta por cada producto.
+            // Crea una tarjeta por cada producto
             productosDisponibles.forEach(
                 function (producto) {
 
@@ -121,7 +121,7 @@ function cargarProductos() {
    CREAR TARJETAS
    ========================= */
 
-// Crea dinámicamente una tarjeta Bootstrap.
+// Crea dinámicamente una tarjeta Bootstrap
 function crearTarjetaProducto(producto) {
 
     const contenedor =
@@ -135,7 +135,7 @@ function crearTarjetaProducto(producto) {
     }
 
 
-    // Columna Bootstrap.
+    // Columna Bootstrap
     const columna =
         document.createElement("div");
 
@@ -149,7 +149,7 @@ function crearTarjetaProducto(producto) {
         producto.id;
 
 
-    // Tarjeta.
+    // Tarjeta
     const tarjeta =
         document.createElement("article");
 
@@ -159,7 +159,7 @@ function crearTarjetaProducto(producto) {
     );
 
 
-    // Imagen.
+    // Imagen
     const imagen =
         document.createElement("img");
 
@@ -177,7 +177,7 @@ function crearTarjetaProducto(producto) {
     );
 
 
-    // Cuerpo.
+    // Cuerpo
     const cuerpo =
         document.createElement("div");
 
@@ -186,7 +186,7 @@ function crearTarjetaProducto(producto) {
     );
 
 
-    // Título.
+    // Título
     const titulo =
         document.createElement("h3");
 
@@ -198,7 +198,7 @@ function crearTarjetaProducto(producto) {
         producto.nombre;
 
 
-    // Categoría.
+    // Categoría
     const categoria =
         document.createElement("p");
 
@@ -210,7 +210,7 @@ function crearTarjetaProducto(producto) {
         producto.categoria;
 
 
-    // Plataformas.
+    // Plataformas
     const plataformas =
         document.createElement("p");
 
@@ -222,7 +222,7 @@ function crearTarjetaProducto(producto) {
         producto.plataformas;
 
 
-    // Precio.
+    // Precio
     const precio =
         document.createElement("p");
 
@@ -236,7 +236,7 @@ function crearTarjetaProducto(producto) {
         );
 
 
-    // Botón detalles.
+    // Botón detalles
     const botonDetalles =
         document.createElement("button");
 
@@ -254,7 +254,7 @@ function crearTarjetaProducto(producto) {
     );
 
 
-    // Botón carrito.
+    // Botón carrito
     const botonCarrito =
         document.createElement("button");
 
@@ -271,7 +271,7 @@ function crearTarjetaProducto(producto) {
     );
 
 
-    // Evento agregar al carrito.
+    // Evento agregar al carrito
     botonCarrito.addEventListener(
         "click",
         function () {
@@ -288,7 +288,7 @@ function crearTarjetaProducto(producto) {
     );
 
 
-    // Evento detalles.
+    // Evento detalles
     botonDetalles.addEventListener(
         "click",
         function () {
@@ -302,7 +302,7 @@ function crearTarjetaProducto(producto) {
     );
 
 
-    // Efecto mouseover.
+    // Efecto mouseover
     tarjeta.addEventListener(
         "mouseover",
         function (event) {
@@ -321,7 +321,7 @@ function crearTarjetaProducto(producto) {
     );
 
 
-    // Efecto mouseout.
+    // Efecto mouseout
     tarjeta.addEventListener(
         "mouseout",
         function (event) {
@@ -340,7 +340,7 @@ function crearTarjetaProducto(producto) {
     );
 
 
-    // Construcción de la tarjeta.
+    // Construcción de la tarjeta
     cuerpo.appendChild(
         titulo
     );
@@ -388,7 +388,7 @@ function crearTarjetaProducto(producto) {
    DETALLES DE PRODUCTO
    ========================= */
 
-// Muestra u oculta la descripción del producto.
+// Muestra u oculta la descripción del producto
 function mostrarOcultarDetalles(
     tarjeta,
     producto,
@@ -468,7 +468,7 @@ function mostrarOcultarDetalles(
    BUSCADOR DE PRODUCTOS
    ========================= */
 
-// Configura el formulario de búsqueda.
+// Configura el formulario de búsqueda
 function configurarBuscador() {
 
     const formulario =
@@ -608,7 +608,7 @@ function configurarBuscador() {
    MENSAJE DE RESULTADOS
    ========================= */
 
-// Muestra información sobre la búsqueda.
+// Muestra información sobre la búsqueda
 function mostrarMensajeBusqueda(
     textoBusqueda,
     cantidadResultados
@@ -766,7 +766,7 @@ function mostrarMensajeBusqueda(
    SUGERENCIAS ORTOGRÁFICAS
    ========================= */
 
-// Busca la palabra más parecida al texto ingresado.
+// Busca la palabra más parecida al texto ingresado
 function obtenerSugerencia(
     textoBusqueda
 ) {
@@ -856,7 +856,7 @@ function obtenerSugerencia(
    DISTANCIA ENTRE PALABRAS
    ========================= */
 
-// Calcula cuántas modificaciones separan dos textos.
+// Calcula cuántas modificaciones separan dos textos
 function calcularDistancia(
     texto1,
     texto2
@@ -928,7 +928,7 @@ function calcularDistancia(
    FORMATO DE PRECIOS
    ========================= */
 
-// Convierte números al formato de moneda chilena.
+// Convierte números al formato de moneda chilena
 function formatearPrecio(valor) {
 
     const precio =
@@ -958,7 +958,7 @@ function formatearPrecio(valor) {
    AGREGAR AL CARRITO
    ========================= */
 
-// Agrega un producto o aumenta su cantidad.
+// Agrega un producto o aumenta su cantidad
 function agregarAlCarrito(
     producto
 ) {
@@ -996,7 +996,7 @@ function agregarAlCarrito(
    ACTUALIZAR CARRITO
    ========================= */
 
-// Actualiza el resumen, contador y total.
+// Actualiza el resumen, contador y total
 function actualizarCarrito() {
 
     const contadorCarrito =
@@ -1024,7 +1024,7 @@ function actualizarCarrito() {
     }
 
 
-    // Limpia el contenido anterior.
+    // Limpia el contenido anterior
     resumen.replaceChildren();
 
 
@@ -1177,7 +1177,7 @@ function actualizarCarrito() {
    ELIMINAR DEL CARRITO
    ========================= */
 
-// Reduce la cantidad o elimina el producto.
+// Reduce la cantidad o elimina el producto
 function eliminarDelCarrito(
     idProducto
 ) {
@@ -1224,7 +1224,7 @@ function eliminarDelCarrito(
    FILTRO POR CATEGORÍAS
    ========================= */
 
-// Configura las categorías del navbar.
+// Configura las categorías del navbar
 function configurarCategorias() {
 
     const botonesCategoria =
@@ -1326,7 +1326,7 @@ function configurarCategorias() {
     );
 
 
-    // Muestra nuevamente todos los juegos.
+    // Muestra nuevamente todos los juegos
     botonTodos.addEventListener(
         "click",
         function (event) {
@@ -1373,7 +1373,7 @@ function configurarCategorias() {
    MENSAJE DE CATEGORÍA
    ========================= */
 
-// Muestra cuántos juegos pertenecen a una categoría.
+// Muestra cuántos juegos pertenecen a una categoría
 function mostrarMensajeCategoria(
     categoria,
     cantidadResultados
@@ -1437,7 +1437,7 @@ function mostrarMensajeCategoria(
    CONFIRMACIÓN VISUAL CARRITO
    ========================= */
 
-// Muestra una animación al agregar un producto.
+// Muestra una animación al agregar un producto
 function mostrarConfirmacionCarrito(
     boton,
     tarjeta
@@ -1503,7 +1503,7 @@ function mostrarConfirmacionCarrito(
    INICIO
    ========================= */
 
-// Activa las funciones principales.
+// Activa las funciones principales
 configurarBuscador();
 configurarCategorias();
 cargarProductos();
