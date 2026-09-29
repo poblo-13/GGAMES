@@ -1,0 +1,1021 @@
+:root {
+  --color-fondo: #06142e;
+  --color-superficie: #0b1f3a;
+  --color-secundario: #007284;
+  --color-acento: #00a58a;
+  --color-destacado: #f9f871;
+  --color-texto: #f8f8f8;
+  --color-texto-secundario: #c7d5e0;
+}
+
+/* ==================================================
+   GENERAL
+   ================================================== */
+
+body {
+  background-color: var(--color-fondo);
+  color: var(--color-texto);
+}
+
+main {
+  width: 100%;
+}
+
+/* ==================================================
+   HEADER PRINCIPAL
+   ================================================== */
+
+.header-principal {
+  background-color: #004162;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.header-contenido {
+  width: min(1600px, 98%);
+  min-height: 95px;
+
+  margin: 0 auto;
+  padding: 10px 16px;
+
+  display: flex;
+  align-items: center;
+  gap: 28px;
+}
+
+/* ==================================================
+   LOGO
+   ================================================== */
+
+.logo-link {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.header-principal .logo-imagen {
+  display: block;
+
+  width: 190px;
+  max-width: 190px;
+  height: auto;
+
+  object-fit: contain;
+}
+
+/* ==================================================
+   CONTENEDOR MENÚ
+   ================================================== */
+
+.menu-contenido {
+  flex: 1;
+
+  display: flex;
+  align-items: center;
+
+  gap: 20px;
+}
+
+/* ==================================================
+   NAVEGACIÓN
+   ================================================== */
+
+.nav-principal {
+  display: flex;
+  align-items: center;
+
+  gap: 20px;
+
+  flex: 1;
+  flex-wrap: wrap;
+}
+
+.nav-principal a,
+.nav-boton {
+  color: var(--color-texto);
+  text-decoration: none;
+
+  background: none;
+  border: none;
+  padding: 0;
+
+  font: inherit;
+  font-weight: 500;
+
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.nav-principal a:hover,
+.nav-boton:hover {
+  color: var(--color-destacado);
+  background: none;
+}
+
+.nav-principal .nav-inicio {
+  color: var(--color-destacado);
+  font-weight: bold;
+}
+
+.carrito-nav {
+  white-space: nowrap;
+}
+
+/* ==================================================
+   BOTÓN HAMBURGUESA
+   ================================================== */
+
+.menu-toggle {
+  display: none;
+
+  padding: 8px 11px;
+
+  background: none;
+  color: var(--color-texto);
+
+  border: 1px solid var(--color-acento);
+  border-radius: 7px;
+
+  font-size: 1.5rem;
+  line-height: 1;
+
+  cursor: pointer;
+}
+
+.menu-toggle:hover {
+  background-color: var(--color-acento);
+}
+
+/* ==================================================
+   BUSCADOR
+   ================================================== */
+
+.buscador {
+  display: flex;
+  align-items: center;
+
+  gap: 8px;
+
+  margin-left: auto;
+}
+
+.buscador input {
+  width: 245px;
+  height: 42px;
+
+  padding: 0 14px;
+
+  border: 1px solid var(--color-secundario);
+  border-radius: 7px;
+
+  background-color: var(--color-fondo);
+  color: var(--color-texto);
+
+  outline: none;
+}
+
+.buscador input::placeholder {
+  color: var(--color-texto-secundario);
+}
+
+.buscador input:focus {
+  border-color: var(--color-acento);
+}
+
+.buscador button {
+  height: 42px;
+
+  padding: 0 16px;
+
+  border: 1px solid var(--color-acento);
+  border-radius: 7px;
+
+  background-color: transparent;
+  color: var(--color-destacado);
+
+  font-weight: bold;
+
+  cursor: pointer;
+}
+
+.buscador button:hover {
+  background-color: var(--color-acento);
+  color: white;
+}
+
+/* ==================================================
+   CARRUSEL
+   ================================================== */
+
+.hero-carousel {
+  position: relative;
+
+  width: 100%;
+  margin: 0;
+
+  overflow: hidden;
+
+  background-color: var(--color-fondo);
+}
+
+.hero-imagen {
+  display: block;
+
+  width: 100%;
+  max-height: 560px;
+
+  object-fit: cover;
+}
+
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+
+  transform: translateY(-50%);
+
+  width: 45px;
+  height: 45px;
+
+  padding: 0;
+
+  border: none;
+  border-radius: 50%;
+
+  background-color: rgba(0, 165, 138, 0.9);
+  color: white;
+
+  font-size: 1.5rem;
+  font-weight: bold;
+
+  cursor: pointer;
+}
+
+.carousel-btn-left {
+  left: 20px;
+}
+
+.carousel-btn-right {
+  right: 20px;
+}
+
+.carousel-btn:hover {
+  background-color: var(--color-secundario);
+}
+
+.carousel-indicadores {
+  position: absolute;
+  bottom: 15px;
+  left: 50%;
+
+  transform: translateX(-50%);
+
+  display: flex;
+  gap: 8px;
+}
+
+.carousel-indicadores button {
+  width: 11px;
+  height: 11px;
+  min-width: 11px;
+
+  padding: 0;
+
+  border: none;
+  border-radius: 50%;
+
+  background-color: rgba(255, 255, 255, 0.6);
+
+  cursor: pointer;
+}
+
+.carousel-indicadores button.activo {
+  background-color: var(--color-destacado);
+}
+
+/* ==================================================
+   BIENVENIDA
+   ================================================== */
+
+.bienvenida {
+  width: min(1400px, 96%);
+
+  margin: 45px auto;
+}
+
+.bienvenida h2 {
+  display: inline-block;
+
+  padding: 8px 16px;
+  margin-bottom: 14px;
+
+  background-color: #004f72;
+  color: var(--color-texto);
+
+  border-radius: 8px;
+
+  font-size: 1.6rem;
+  font-weight: 500;
+}
+
+.bienvenida p {
+  color: var(--color-texto);
+  line-height: 1.6;
+}
+
+/* ==================================================
+   ¿POR QUÉ ELEGIR GGAMES?
+   ================================================== */
+
+.porque-ggames {
+  width: min(1400px, 96%);
+
+  margin: 50px auto;
+}
+
+.porque-ggames h2 {
+  margin-bottom: 30px;
+
+  text-align: center;
+}
+
+.beneficios-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 24px;
+}
+
+.beneficio-card {
+  padding: 28px 22px;
+
+  background-color: var(--color-superficie);
+
+  border: 2px solid transparent;
+  border-radius: 12px;
+
+  text-align: center;
+
+  transition:
+    transform 0.25s ease,
+    border-color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.beneficio-card:hover {
+  border-color: var(--color-destacado);
+
+  transform: translateY(-5px);
+
+  box-shadow:
+    0 0 0 1px rgba(249, 248, 113, 0.2),
+    0 12px 24px rgba(0, 0, 0, 0.3);
+}
+
+.beneficio-icono {
+  display: block;
+
+  margin-bottom: 12px;
+
+  font-size: 2.3rem;
+}
+
+.beneficio-card h3 {
+  margin-bottom: 10px;
+
+  color: var(--color-destacado);
+}
+
+.beneficio-card p {
+  color: var(--color-texto-secundario);
+
+  line-height: 1.6;
+}
+
+/* ==================================================
+   PRODUCTOS
+   ================================================== */
+
+#productos {
+  width: min(1400px, 96%);
+
+  margin: 0 auto;
+  padding: 30px 0;
+}
+
+#productos h2 {
+  margin-bottom: 25px;
+
+  text-align: center;
+}
+
+.product-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 25px;
+}
+
+.product-list article {
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 12px;
+
+  padding: 18px;
+
+  background-color: var(--color-superficie);
+
+  border-radius: 12px;
+
+  overflow: hidden;
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    border-color 0.25s ease;
+}
+
+/* ==================================================
+   BORDE AMARILLO HOVER
+   ================================================== */
+
+.producto-card {
+  border: 2px solid transparent;
+}
+
+.producto-card:hover {
+  border-color: var(--color-destacado);
+
+  transform: translateY(-6px);
+
+  box-shadow:
+    0 0 0 1px rgba(249, 248, 113, 0.25),
+    0 12px 25px rgba(0, 0, 0, 0.35);
+}
+
+.product-list img {
+  width: 100%;
+  height: 220px;
+
+  object-fit: cover;
+
+  border-radius: 8px;
+}
+
+.product-list h3 {
+  color: var(--color-texto);
+
+  font-size: 1.25rem;
+}
+
+.product-list p {
+  color: var(--color-texto-secundario);
+}
+
+.product-list button {
+  margin-top: auto;
+}
+
+/* ==================================================
+   OFERTAS
+   ================================================== */
+
+.badge-oferta {
+  position: absolute;
+  top: 28px;
+  right: 28px;
+
+  z-index: 2;
+
+  padding: 6px 10px;
+
+  background-color: var(--color-destacado);
+  color: var(--color-fondo);
+
+  border-radius: 6px;
+
+  font-size: 0.75rem;
+  font-weight: bold;
+}
+
+.precio-normal {
+  color: var(--color-texto-secundario);
+
+  text-decoration: line-through;
+}
+
+.precio-oferta {
+  color: var(--color-destacado);
+
+  font-size: 1.1rem;
+  font-weight: bold;
+}
+
+.producto-error {
+  border: 1px solid rgba(255, 255, 255, 0.15);
+
+  text-align: center;
+}
+
+/* ==================================================
+   BOTONES GENERALES
+   ================================================== */
+
+button {
+  padding: 10px 14px;
+
+  background-color: var(--color-acento);
+  color: white;
+
+  border: none;
+  border-radius: 8px;
+
+  font-weight: bold;
+
+  cursor: pointer;
+
+  transition:
+    background-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+button:hover {
+  background-color: var(--color-secundario);
+}
+
+/* ==================================================
+   MENSAJES DE BÚSQUEDA
+   ================================================== */
+
+.mensaje-busqueda {
+  width: min(1400px, 96%);
+
+  margin: 35px auto;
+  padding: 30px;
+
+  background-color: var(--color-superficie);
+
+  border: 1px solid rgba(0, 165, 138, 0.35);
+  border-radius: 12px;
+
+  text-align: center;
+}
+
+.mensaje-busqueda h2 {
+  margin-bottom: 10px;
+
+  color: var(--color-destacado);
+}
+
+.mensaje-busqueda p {
+  margin-bottom: 18px;
+
+  color: var(--color-texto-secundario);
+}
+
+.mensaje-busqueda button {
+  background-color: var(--color-acento);
+}
+
+/* ==================================================
+   CARRITO
+   ================================================== */
+
+#carrito {
+  width: min(1400px, 96%);
+
+  margin: 45px auto;
+  padding: 25px;
+
+  background-color: var(--color-superficie);
+
+  border: 1px solid rgba(0, 165, 138, 0.75);
+  border-radius: 12px;
+
+  transition:
+    border-color 0.25s ease,
+    box-shadow 0.25s ease,
+    transform 0.25s ease;
+}
+
+#carrito:hover {
+  border-color: var(--color-acento);
+
+  box-shadow:
+    0 0 12px rgba(0, 165, 138, 0.16),
+    0 10px 25px rgba(0, 0, 0, 0.2);
+
+  transform: translateY(-2px);
+}
+
+#carrito h2 {
+  margin-bottom: 20px;
+
+  color: var(--color-destacado);
+}
+
+#carrito p {
+  margin: 8px 0;
+}
+
+/* ==================================================
+   ITEMS DEL CARRITO
+   ================================================== */
+
+.lista-carrito {
+  display: flex;
+  flex-direction: column;
+}
+
+.cart-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 25px;
+
+  padding: 18px 0;
+
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.cart-info h3 {
+  margin-bottom: 8px;
+}
+
+.cart-info p {
+  margin: 4px 0;
+}
+
+.cart-controles {
+  display: flex;
+  align-items: center;
+
+  gap: 10px;
+}
+
+.cart-controles button {
+  min-width: 42px;
+}
+
+.cart-cantidad {
+  min-width: 35px;
+
+  text-align: center;
+
+  font-size: 1.1rem;
+  font-weight: bold;
+}
+
+.btn-eliminar {
+  margin-left: 12px;
+}
+
+/* ==================================================
+   RESUMEN CARRITO
+   ================================================== */
+
+.resumen-carrito {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  margin-top: 20px;
+  padding-top: 15px;
+
+  font-weight: bold;
+}
+
+.total-carrito {
+  color: var(--color-destacado);
+
+  font-size: 1.25rem;
+}
+
+/* ==================================================
+   FOOTER
+   ================================================== */
+
+.footer-principal {
+  margin-top: 60px;
+  padding: 35px 4% 20px;
+
+  background-color: #041126;
+
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.footer-contenido {
+  width: min(1400px, 100%);
+
+  margin: 0 auto;
+
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 30px;
+}
+
+.footer-principal h3,
+.footer-principal h4 {
+  margin-bottom: 10px;
+
+  color: var(--color-destacado);
+}
+
+.footer-principal p {
+  color: var(--color-texto-secundario);
+
+  line-height: 1.6;
+}
+
+/* ==================================================
+   LINKS FOOTER
+   ================================================== */
+
+.footer-link,
+.footer-redes a {
+  display: inline-block;
+
+  color: var(--color-texto-secundario);
+
+  text-decoration: none;
+
+  transition:
+    color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.footer-link:hover,
+.footer-redes a:hover {
+  color: var(--color-destacado);
+}
+
+.footer-redes {
+  display: flex;
+  flex-direction: column;
+
+  gap: 8px;
+}
+
+.footer-redes a:hover {
+  transform: translateX(4px);
+}
+
+.footer-copy {
+  margin-top: 25px;
+  padding-top: 15px;
+
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+
+  text-align: center;
+}
+
+/* ==================================================
+   SCROLL
+   ================================================== */
+
+#productos,
+#carrito,
+#inicio,
+#contacto {
+  scroll-margin-top: 110px;
+}
+
+/* ==================================================
+   RESPONSIVE TABLET
+   ================================================== */
+
+@media (max-width: 1100px) {
+  .header-contenido {
+    flex-wrap: wrap;
+
+    justify-content: center;
+
+    padding: 15px 16px;
+  }
+
+  .menu-contenido {
+    width: 100%;
+
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .nav-principal {
+    justify-content: center;
+  }
+
+  .buscador {
+    width: 100%;
+
+    justify-content: center;
+
+    margin-left: 0;
+  }
+
+  .buscador input {
+    width: min(350px, 75%);
+  }
+}
+
+/* ==================================================
+   RESPONSIVE PRODUCTOS TABLET
+   ================================================== */
+
+@media (max-width: 900px) {
+  .product-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .hero-imagen {
+    max-height: 420px;
+  }
+}
+
+/* ==================================================
+   RESPONSIVE BENEFICIOS
+   ================================================== */
+
+@media (max-width: 768px) {
+  .beneficios-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ==================================================
+   RESPONSIVE FOOTER
+   ================================================== */
+
+@media (max-width: 700px) {
+  .footer-contenido {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ==================================================
+   RESPONSIVE MÓVIL
+   MENÚ HAMBURGUESA
+   ================================================== */
+
+@media (max-width: 600px) {
+
+  /* HEADER */
+
+  .header-contenido {
+    width: 100%;
+    min-height: auto;
+
+    padding: 12px 18px;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+
+    flex-wrap: wrap;
+
+    gap: 10px;
+  }
+
+  /* LOGO */
+
+  .header-principal .logo-imagen {
+    width: 150px;
+    max-width: 150px;
+  }
+
+  /* BOTÓN HAMBURGUESA */
+
+  .menu-toggle {
+    display: block;
+  }
+
+  /* MENÚ CERRADO */
+
+  .menu-contenido {
+    display: none;
+
+    width: 100%;
+
+    padding-top: 8px;
+  }
+
+  /* MENÚ ABIERTO */
+
+  .menu-contenido.menu-abierto {
+    display: flex;
+
+    flex-direction: column;
+    align-items: stretch;
+
+    gap: 12px;
+  }
+
+  /* LINKS DEL MENÚ */
+
+  .nav-principal {
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+
+    gap: 0;
+  }
+
+  .nav-principal a,
+  .nav-boton {
+    width: 100%;
+
+    display: block;
+
+    padding: 12px 8px;
+
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+
+    text-align: left;
+  }
+
+  .nav-principal a:hover,
+  .nav-boton:hover {
+    padding-left: 14px;
+  }
+
+  /* BUSCADOR MÓVIL */
+
+  .buscador {
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 8px;
+
+    margin: 0;
+  }
+
+  .buscador input,
+  .buscador button {
+    width: 100%;
+  }
+
+  /* CARRUSEL */
+
+  .hero-imagen {
+    max-height: 280px;
+  }
+
+  .carousel-btn {
+    width: 38px;
+    height: 38px;
+
+    font-size: 1.2rem;
+  }
+
+  .carousel-btn-left {
+    left: 10px;
+  }
+
+  .carousel-btn-right {
+    right: 10px;
+  }
+
+  /* CONTENIDO */
+
+  .bienvenida,
+  .porque-ggames,
+  #productos,
+  #carrito {
+    width: 92%;
+  }
+
+  /* PRODUCTOS */
+
+  .product-list {
+    grid-template-columns: 1fr;
+  }
+
+  /* CARRITO */
+
+  .cart-item {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .cart-controles {
+    flex-wrap: wrap;
+  }
+
+  .resumen-carrito {
+    flex-direction: column;
+    align-items: flex-start;
+
+    gap: 10px;
+  }
+}
