@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="700" viewBox="0 0 1200 700">
+  <rect width="1200" height="700" fill="#06142E"></rect>
+
+  <circle cx="600" cy="270" r="105" fill="#0B1F3A"></circle>
+
+  <!-- Control -->
+  <path d="M500 260
+       C500 210 535 185 575 205
+       L625 205
+       C665 185 700 210 700 260
+       L725 345
+       C735 380 700 405 675 380
+       L630 335
+       L570 335
+       L525 380
+       C500 405 465 380 475 345
+       Z" fill="#00A58A"></path>
+
+  <!-- Cruceta -->
+  <rect x="535" y="250" width="60" height="18" rx="5" fill="#06142E"></rect>
+  <rect x="556" y="229" width="18" height="60" rx="5" fill="#06142E"></rect>
+
+  <!-- Botones -->
+  <circle cx="650" cy="245" r="12" fill="#F9F871"></circle>
+  <circle cx="680" cy="275" r="12" fill="#F9F871"></circle>
+
+  <text x="600" y="450" text-anchor="middle" fill="#F9F871" font-family="Arial, sans-serif" font-size="64" font-weight="bold">
+    GGAMES
+  </text>
+
+  <text x="600" y="505" text-anchor="middle" fill="#C7D5E0" font-family="Arial, sans-serif" font-size="28">
+    Imagen no disponible
+  </text>
+</svg>

@@ -1,4 +1,12 @@
-function ProductCard({ producto, agregarAlCarrito }) {
+import { useState } from "react";
+
+function ProductCard({
+    producto,
+    estaEnCarrito,
+    agregarAlCarrito
+}) {
+    const [imagenError, setImagenError] = useState(false);
+
     const productoValido =
         producto &&
         producto.nombre &&
@@ -17,6 +25,9 @@ function ProductCard({ producto, agregarAlCarrito }) {
     const tieneOferta =
         producto.precioOferta < producto.precioNormal;
 
+    const imagenAlternativa =
+        `${import.meta.env.BASE_URL}img/imagen_no_disponible.svg`;
+
     return (
         <article className="producto-card">
             {tieneOferta && (
@@ -26,9 +37,18 @@ function ProductCard({ producto, agregarAlCarrito }) {
             )}
 
             <img
-                src={producto.imagen}
-                alt={producto.nombre}
+                src={
+                    imagenError
+                        ? imagenAlternativa
+                        : producto.imagen
+                }
+                alt={
+                    imagenError
+                        ? `Imagen no disponible para ${producto.nombre}`
+                        : producto.nombre
+                }
                 className="producto-imagen"
+                onError={() => setImagenError(true)}
             />
 
             <h3>{producto.nombre}</h3>
@@ -36,16 +56,29 @@ function ProductCard({ producto, agregarAlCarrito }) {
             <p>{producto.descripcion}</p>
 
             <p className="precio-normal">
-                Precio normal: ${producto.precioNormal.toLocaleString("es-CL")}
+                Precio normal: $
+                {producto.precioNormal.toLocaleString("es-CL")}
             </p>
 
             <p className="precio-oferta">
-                Precio oferta: ${producto.precioOferta.toLocaleString("es-CL")}
+                Precio oferta: $
+                {producto.precioOferta.toLocaleString("es-CL")}
             </p>
 
-            <button onClick={() => agregarAlCarrito(producto)}>
-                Agregar al carrito
-            </button>
+            {estaEnCarrito ? (
+                <button
+                    className="btn-en-carrito"
+                    disabled
+                >
+                    ✓ En el carrito
+                </button>
+            ) : (
+                <button
+                    onClick={() => agregarAlCarrito(producto)}
+                >
+                    Agregar al carrito
+                </button>
+            )}
         </article>
     );
 }
