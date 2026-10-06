@@ -4,26 +4,31 @@ import Header from "./components/Header.jsx";
 import HeroCarousel from "./components/HeroCarousel.jsx";
 import WhyGgames from "./components/WhyGgames.jsx";
 import ProductList from "./components/ProductList.jsx";
+import CatalogManager from "./components/CatalogManager.jsx";
 import Cart from "./components/Cart.jsx";
+import ContactForm from "./components/ContactForm.jsx";
 import Footer from "./components/Footer.jsx";
 
 import "./App.css";
 
 function App() {
-  // Estado principal del catálogo.
-  const [productos, setProductos] = useState([]);
+  // ==================================================
+  // ESTADOS DEL CATÁLOGO
+  // ==================================================
 
-  // Estados relacionados con la carga dinámica de productos.
+  const [productos, setProductos] = useState([]);
   const [cargando, setCargando] = useState(true);
   const [error, setError] = useState(null);
-
-  // Permite volver a ejecutar la carga del catálogo cuando ocurre un error.
   const [intentoCarga, setIntentoCarga] = useState(0);
 
-  // Recupera el carrito almacenado anteriormente en el navegador.
+  // ==================================================
+  // CARRITO CON PERSISTENCIA EN LOCALSTORAGE
+  // ==================================================
+
   const [carrito, setCarrito] = useState(() => {
     try {
-      const carritoGuardado = localStorage.getItem("ggames-carrito");
+      const carritoGuardado =
+        localStorage.getItem("ggames-carrito");
 
       if (!carritoGuardado) {
         return [];
@@ -49,23 +54,29 @@ function App() {
       return carritoValido;
     } catch (errorLectura) {
       console.error(
-        "No fue posible recuperar el carrito guardado:",
+        "No fue posible recuperar el carrito:",
         errorLectura
       );
 
       localStorage.removeItem("ggames-carrito");
+
       return [];
     }
   });
 
-  // Estados interactivos de la aplicación.
+  // ==================================================
+  // ESTADOS INTERACTIVOS
+  // ==================================================
+
   const [categoriaSeleccionada, setCategoriaSeleccionada] =
     useState("Todas");
 
   const [busqueda, setBusqueda] = useState("");
 
-  // Carga los productos dinámicamente desde el archivo JSON.
-  // El efecto también se vuelve a ejecutar cuando cambia intentoCarga.
+  // ==================================================
+  // CARGA DINÁMICA DEL CATÁLOGO
+  // ==================================================
+
   useEffect(() => {
     async function cargarProductos() {
       try {
@@ -86,7 +97,7 @@ function App() {
 
         if (!Array.isArray(datos)) {
           throw new Error(
-            "El formato de los productos no es válido."
+            "El formato del catálogo no es válido."
           );
         }
 
@@ -95,6 +106,8 @@ function App() {
             producto &&
             typeof producto.id === "number" &&
             typeof producto.nombre === "string" &&
+            typeof producto.categoria === "string" &&
+            typeof producto.descripcion === "string" &&
             typeof producto.precioNormal === "number" &&
             typeof producto.precioOferta === "number" &&
             typeof producto.imagen === "string"
@@ -106,12 +119,12 @@ function App() {
           );
         }
 
-        const productosConImagen = productosValidos.map(
-          (producto) => ({
+        const productosConImagen =
+          productosValidos.map((producto) => ({
             ...producto,
-            imagen: `${import.meta.env.BASE_URL}${producto.imagen}`
-          })
-        );
+            imagen:
+              `${import.meta.env.BASE_URL}${producto.imagen}`
+          }));
 
         setProductos(productosConImagen);
       } catch (errorCarga) {
@@ -133,7 +146,10 @@ function App() {
     cargarProductos();
   }, [intentoCarga]);
 
-  // Guarda automáticamente el carrito cada vez que cambia.
+  // ==================================================
+  // GUARDADO AUTOMÁTICO DEL CARRITO
+  // ==================================================
+
   useEffect(() => {
     try {
       localStorage.setItem(
@@ -148,17 +164,26 @@ function App() {
     }
   }, [carrito]);
 
+  // ==================================================
+  // RECUPERACIÓN ANTE ERROR
+  // ==================================================
+
   function reintentarCarga() {
     setIntentoCarga(
       (intentoActual) => intentoActual + 1
     );
   }
 
+  // ==================================================
+  // FUNCIONES DEL CARRITO
+  // ==================================================
+
   function agregarAlCarrito(producto) {
     setCarrito((carritoActual) => {
-      const productoExistente = carritoActual.find(
-        (item) => item.id === producto.id
-      );
+      const productoExistente =
+        carritoActual.find(
+          (item) => item.id === producto.id
+        );
 
       if (productoExistente) {
         return carritoActual.map((item) =>
@@ -217,6 +242,51 @@ function App() {
     );
   }
 
+  // ==================================================
+  // GESTIÓN DINÁMICA DEL CATÁLOGO
+  // ==================================================
+
+  function agregarProductoCatalogo(nuevoProducto) {
+    const productoConId = {
+      ...nuevoProducto,
+
+      // Date.now genera un identificador único
+      // para los productos agregados durante la sesión.
+      id: Date.now(),
+
+      // Los productos nuevos utilizan una imagen
+      // alternativa de GGAMES.
+      imagen:
+        `${import.meta.env.BASE_URL}img/imagen_no_disponible.svg`
+    };
+
+    setProductos((productosActuales) => [
+      ...productosActuales,
+      productoConId
+    ]);
+  }
+
+  function eliminarProductoCatalogo(id) {
+    // Elimina el videojuego del catálogo.
+    setProductos((productosActuales) =>
+      productosActuales.filter(
+        (producto) => producto.id !== id
+      )
+    );
+
+    // Si el videojuego también estaba en el carrito,
+    // se elimina para mantener consistencia.
+    setCarrito((carritoActual) =>
+      carritoActual.filter(
+        (producto) => producto.id !== id
+      )
+    );
+  }
+
+  // ==================================================
+  // NAVEGACIÓN Y FILTROS
+  // ==================================================
+
   function irAProductos() {
     setTimeout(() => {
       document
@@ -242,8 +312,12 @@ function App() {
     setBusqueda(texto);
   }
 
+  // ==================================================
+  // BÚSQUEDA INTELIGENTE
+  // ==================================================
+
   function normalizarTexto(texto) {
-    return texto
+    return String(texto || "")
       .toLowerCase()
       .normalize("NFD")
       .replace(/[\u0300-\u036f]/g, "")
@@ -301,10 +375,11 @@ function App() {
       ];
 
       opciones.forEach((opcion) => {
-        const distancia = calcularDistancia(
-          termino,
-          opcion
-        );
+        const distancia =
+          calcularDistancia(
+            termino,
+            opcion
+          );
 
         if (distancia < menorDistancia) {
           menorDistancia = distancia;
@@ -318,7 +393,12 @@ function App() {
       : null;
   }
 
-  const textoBusqueda = normalizarTexto(busqueda);
+  // ==================================================
+  // FILTRADO DEL CATÁLOGO
+  // ==================================================
+
+  const textoBusqueda =
+    normalizarTexto(busqueda);
 
   const productosFiltrados =
     productos.filter((producto) => {
@@ -348,6 +428,7 @@ function App() {
 
   const sugerencia =
     productosFiltrados.length === 0 &&
+      productos.length > 0 &&
       busqueda.trim() !== "" &&
       !cargando &&
       !error
@@ -360,6 +441,10 @@ function App() {
         total + item.cantidad,
       0
     );
+
+  // ==================================================
+  // INTERFAZ
+  // ==================================================
 
   return (
     <>
@@ -397,6 +482,10 @@ function App() {
 
         <WhyGgames />
 
+        {/* ==========================================
+            CATÁLOGO
+            ========================================== */}
+
         {cargando ? (
           <section className="mensaje-busqueda">
             <h2>
@@ -414,14 +503,29 @@ function App() {
               No pudimos cargar el catálogo
             </h2>
 
-            <p>{error}</p>
+            <p>
+              {error}
+            </p>
 
             <button
               type="button"
+              className="btn btn-success"
               onClick={reintentarCarga}
             >
               Reintentar carga
             </button>
+          </section>
+        ) : productos.length === 0 ? (
+          <section className="mensaje-busqueda">
+            <h2>
+              Catálogo vacío
+            </h2>
+
+            <p>
+              Actualmente no hay videojuegos
+              disponibles. Puedes agregar uno
+              desde la gestión del catálogo.
+            </p>
           </section>
         ) : productosFiltrados.length > 0 ? (
           <ProductList
@@ -441,11 +545,16 @@ function App() {
 
             <p>
               No hay resultados para "
-              <strong>{busqueda}</strong>".
+              <strong>
+                {busqueda}
+              </strong>
+              ".
             </p>
 
             {sugerencia && (
               <button
+                type="button"
+                className="btn btn-success"
                 onClick={() =>
                   setBusqueda(
                     sugerencia.nombre
@@ -459,6 +568,26 @@ function App() {
           </section>
         )}
 
+        {/* ==========================================
+            GESTIÓN DINÁMICA DEL CATÁLOGO
+            ========================================== */}
+
+        {!cargando && !error && (
+          <CatalogManager
+            productos={productos}
+            agregarProducto={
+              agregarProductoCatalogo
+            }
+            eliminarProducto={
+              eliminarProductoCatalogo
+            }
+          />
+        )}
+
+        {/* ==========================================
+            CARRITO
+            ========================================== */}
+
         <Cart
           carrito={carrito}
           aumentarCantidad={
@@ -471,6 +600,12 @@ function App() {
             eliminarDelCarrito
           }
         />
+
+        {/* ==========================================
+            FORMULARIO DE CONTACTO
+            ========================================== */}
+
+        <ContactForm />
       </main>
 
       <Footer />
