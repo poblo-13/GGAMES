@@ -461,8 +461,7 @@ La aplicación utiliza GitHub Pages para su publicación.
 https://poblo-13.github.io/GGAMES/
 ```
 
-La versión correspondiente a la EFT se publica al finalizar el proceso de desarrollo y validación.
-
+La versión final correspondiente a la Evaluación Final Transversal se encuentra publicada mediante GitHub Pages.
 ---
 
 ## Autor
