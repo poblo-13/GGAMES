@@ -1,13 +1,13 @@
 function Footer() {
     return (
-        <footer id="contacto" className="footer-principal">
+        <footer
+            id="footer"
+            className="footer-principal"
+        >
             <div className="footer-contenido">
                 <div>
                     <h3>GGAMES</h3>
-
-                    <p>
-                        Tu tienda de videojuegos.
-                    </p>
+                    <p>Tu tienda de videojuegos.</p>
                 </div>
 
                 <div>
